@@ -105,17 +105,17 @@ p{color:#9a9890;line-height:1.75;font-weight:300}
 .ti p{font-size:14px}
 #clients{padding:64px 0;border-bottom:1px solid var(--br);overflow:hidden;max-width:none}
 .ch{max-width:1100px;margin:0 auto 40px;padding:0 32px}
-.ct{overflow:hidden;width:100%;position:relative}
+.ct{overflow:hidden;width:100%;position:relative;--logo-w:clamp(160px,18vw,220px);--logo-h:clamp(88px,9vw,120px);--logo-gap:18px}
 .ct::before,.ct::after{content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
 .ct::before{left:0;background:linear-gradient(to right,var(--bg),transparent)}
 .ct::after{right:0;background:linear-gradient(to left,var(--bg),transparent)}
-.cr{display:flex;align-items:center;width:max-content;animation:sl 36s linear infinite}
+.cr{display:flex;align-items:center;gap:var(--logo-gap);width:max-content;padding:8px var(--logo-gap);animation:sl 36s linear infinite}
 .cr:hover{animation-play-state:paused}
 @keyframes sl{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.ci{flex:0 0 auto;width:200px;height:90px;display:flex;align-items:center;justify-content:center;padding:0 28px;border-right:1px solid var(--br);transition:background .3s}
-.ci:hover{background:var(--sf)}
-.ci img{max-width:130px;max-height:52px;object-fit:contain;filter:grayscale(1) brightness(1.8);opacity:.45;transition:opacity .3s,filter .3s}
-.ci:hover img{opacity:1;filter:grayscale(0) brightness(1)}
+.carousel-item{flex:0 0 auto;width:var(--logo-w);min-height:var(--logo-h);display:flex;align-items:center;justify-content:center;padding:18px 24px;border:1px solid var(--br);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.015));box-shadow:inset 0 1px 0 rgba(255,255,255,.03);transition:transform .25s ease,border-color .25s ease,background .25s ease}
+.carousel-item:hover{transform:translateY(-2px);border-color:var(--br2);background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02))}
+.carousel-item img{display:block;width:auto;max-width:100%;max-height:64px;object-fit:contain;object-position:center;filter:grayscale(1) brightness(1.35) contrast(1.05);opacity:.78;transition:opacity .25s ease,filter .25s ease,transform .25s ease}
+.carousel-item:hover img{opacity:1;filter:grayscale(.15) brightness(1.05) contrast(1.02);transform:scale(1.02)}
 #cta{min-height:auto;display:flex;flex-direction:column;justify-content:center;padding:64px 32px 72px;text-align:center;position:relative;overflow:hidden;border-bottom:none;max-width:none}
 @keyframes gp{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:1}50%{transform:translate(-50%,-50%) scale(1.15);opacity:.6}}
 .cg{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(200,255,69,.08) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;animation:gp 4s ease-in-out infinite}
@@ -203,8 +203,11 @@ footer{padding:32px;border-top:1px solid var(--br);display:flex;align-items:cent
   /* ── Clients carousel */
   #clients{padding:48px 0}
   .ch{padding:0 20px;margin-bottom:28px}
-  .ci{width:150px;height:80px;padding:0 16px}
-  .ci img{max-width:110px;max-height:44px}
+  .ct{--logo-w:136px;--logo-h:82px;--logo-gap:12px}
+  .ct::before,.ct::after{width:56px}
+  .cr{padding:6px 12px}
+  .carousel-item{padding:14px 16px;border-radius:14px}
+  .carousel-item img{max-height:42px}
 
   /* ── CTA */
   #cta{padding:48px 20px 56px}
